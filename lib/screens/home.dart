@@ -53,7 +53,8 @@ class _HomePageState extends State<HomePage> {
                         CircleAvatar(
                           radius: 25,
                           backgroundColor: Colors.grey,
-                          child: Icon(Icons.account_circle_outlined),
+                          child: Icon(Icons.account_circle_outlined,
+                          color: Colors.amber,),
                         )
                       ],
                     ),

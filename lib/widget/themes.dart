@@ -15,6 +15,6 @@ class MyTheme {
     primaryColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     primaryColorBrightness: Brightness.light,
-    colorScheme: ColorScheme.dark(),
+    colorScheme: ColorScheme.light(),
   );
 }

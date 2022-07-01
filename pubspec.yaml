@@ -36,6 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_credit_card: ^3.0.1
   sticky_grouped_list: ^2.1.0
+  progress_button: ^0.0.2
+  google_fonts: ^3.0.1
+  font_awesome_flutter: ^10.1.0
+  badges: ^2.0.3
+  glassmorphism: ^3.0.0
+  progress_state_button: ^1.0.4
 
 dev_dependencies:
   flutter_test:

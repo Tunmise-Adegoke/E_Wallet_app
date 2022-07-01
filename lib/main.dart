@@ -1,5 +1,5 @@
 import 'package:e_wallet_app/screens/home.dart';
-import 'package:e_wallet_app/widget/themes.dart';
+import 'package:e_wallet_app/utils/themes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

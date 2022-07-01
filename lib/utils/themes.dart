@@ -1,7 +1,4 @@
 
-
-
-import 'package:e_wallet_app/widget/constants.dart';
 import 'package:flutter/material.dart';
 
 class MyTheme {

@@ -1,7 +1,9 @@
 import 'package:badges/badges.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_wallet_app/widget/transfer_button.dart';
 import 'package:e_wallet_app/screens/transaction_history.dart';
 import 'package:e_wallet_app/screens/credit_card.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -17,6 +19,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+
+    final user = FirebaseAuth.instance.currentUser!;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -51,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                             height: h * 0.01,
                           ),
                           Text(
-                            'Oluwatunmise',
+                            user.email!,
                             style: TextStyle(
                               fontFamily: 'JosefinSan',
                               fontSize: w * 0.04,
@@ -64,10 +68,15 @@ class _HomePageState extends State<HomePage> {
                         badgeColor: Colors.red,
                         borderRadius: BorderRadius.circular(30),
                         position: BadgePosition(bottom: 25),
-                        child: Icon(
-                          FontAwesomeIcons.bell,
-                          size: 35,
-                          color: Colors.black,
+                        child: IconButton(
+                          onPressed: () {
+                            FirebaseAuth.instance.signOut();
+                          },
+                          icon: Icon(
+                            Icons.logout_rounded,
+                            size: 35,
+                            color: Colors.black,
+                          ),
                         ),
                       )
                     ],

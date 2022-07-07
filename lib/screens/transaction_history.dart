@@ -20,37 +20,37 @@ List<Element> _elements = [
       date: DateTime(1, 7, 2022),
       image: CircleAvatar(
         radius: 35,
-        backgroundColor: Colors.white.withOpacity(0.1),
+        backgroundColor: Colors.white.withOpacity(0.3),
         child: Icon(
           Icons.person,
           color: Colors.white,
         ),
       ),
-      name: 'Tunmise',
+      name: 'Mise',
       price: '-300 points'),
   Element(
       date: DateTime(1, 7, 2022),
       image: CircleAvatar(
         radius: 35,
-        backgroundColor: Colors.white.withOpacity(0.1),
+        backgroundColor: Colors.white.withOpacity(0.3),
         child: Icon(
           Icons.person,
           color: Colors.white,
         ),
       ),
-      name: 'Kelly',
+      name: 'Caroline',
       price: '-500 points'),
   Element(
       date: DateTime(1, 7, 2022),
       image: CircleAvatar(
         radius: 35,
-        backgroundColor: Colors.white.withOpacity(0.1),
+        backgroundColor: Colors.white.withOpacity(0.3),
         child: Icon(
           Icons.person,
           color: Colors.white,
         ),
       ),
-      name: 'Sammy',
+      name: 'kiki',
       price: '+300 points'),
 ];
 

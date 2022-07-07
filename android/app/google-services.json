@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "774381050885",
+    "project_id": "treebug-points",
+    "storage_bucket": "treebug-points.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774381050885:android:c89222010ce21ff450906c",
+        "android_client_info": {
+          "package_name": "com.example.e_wallet_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774381050885-i4akgkdt0pdvpdp5tvs6jna8hphgg6gd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyCkByPG7QV-QAsTt2cCe34qGZiCNx4sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774381050885-i4akgkdt0pdvpdp5tvs6jna8hphgg6gd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,15 +9,15 @@ class NumPad extends StatelessWidget {
   final Color iconColor;
   final TextEditingController controller;
   final Function delete;
-  // final Function onSubmit;
+  final Function onSubmit;
 
   const NumPad({
     Key? key,
-    this.buttonSize = 70,
-    this.buttonColor = kCustomlightBlue,
-    this.iconColor = Colors.grey,
+    this.buttonSize = 50,
+    this.buttonColor = Colors.transparent,
+    this.iconColor = Colors.black,
     required this.delete,
-    // required this.onSubmit,
+    required this.onSubmit,
     required this.controller,
   }) : super(key: key);
 
@@ -110,13 +110,7 @@ class NumPad extends StatelessWidget {
                   Icons.backspace,
                   color: iconColor,
                 ),
-                iconSize: buttonSize,
-              ),
-              NumberButton(
-                number: 0,
-                size: buttonSize,
-                color: buttonColor,
-                controller: controller,
+                iconSize: 30,
               ),
               NumberButton(
                 number: 0,
@@ -125,14 +119,14 @@ class NumPad extends StatelessWidget {
                 controller: controller,
               ),
               // this button is used to submit the entered value
-              // IconButton(
-              //   onPressed: () => onSubmit(),
-              //   icon: Icon(
-              //     Icons.check,
-              //     color: iconColor,
-              //   ),
-              //   iconSize: buttonSize,
-              // ),
+              IconButton(
+                onPressed: () => onSubmit(),
+                icon: Icon(
+                  Icons.check,
+                  color: iconColor,
+                ),
+                iconSize: 30,
+              ),
             ],
           ),
         ],
@@ -162,23 +156,23 @@ class NumberButton extends StatelessWidget {
     return SizedBox(
       width: size,
       height: size,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: color,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(size / 2),
-          ),
-        ),
-        onPressed: () {
+      child: InkWell(
+        onTap: () {
           controller.text += number.toString();
         },
-        child: Center(
-          child: Text(
-            number.toString(),
-            style: const TextStyle(
-              fontWeight: FontWeight.normal,
-              color: Colors.white,
-              fontSize: 30,
+        child: Container(
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(size / 2),
+          ),
+          child: Center(
+            child: Text(
+              number.toString(),
+              style: const TextStyle(
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+                fontSize: 30,
+              ),
             ),
           ),
         ),

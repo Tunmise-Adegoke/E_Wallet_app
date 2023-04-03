@@ -4,7 +4,7 @@ import 'package:e_wallet_app/widget/textfield.dart';
 import 'package:flutter/material.dart';
 
 class TransferScreen extends StatefulWidget {
-  TransferScreen({Key? key}) : super(key: key);
+ const TransferScreen({Key? key}) : super(key: key);
 
   @override
   State<TransferScreen> createState() => _TransferScreenState();
@@ -31,7 +31,7 @@ class _TransferScreenState extends State<TransferScreen> {
         backgroundColor: Colors.deepOrange,
         leading: IconButton(
           color: Colors.black,
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_new,
           ),
           onPressed: () {
@@ -41,7 +41,7 @@ class _TransferScreenState extends State<TransferScreen> {
       ),
       body: ListView(
         children: [
-          SizedBox(
+        const  SizedBox(
             height: 10,
           ),
           Padding(
@@ -60,8 +60,8 @@ class _TransferScreenState extends State<TransferScreen> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
-                itemBuilder: (context, int) {
-                  return ProfileCard();
+                itemBuilder: (context, index) {
+                  return const ProfileCard();
                 }),
           ),
           SizedBox(
@@ -72,20 +72,20 @@ class _TransferScreenState extends State<TransferScreen> {
               CircleAvatar(
                 radius: 40,
                 backgroundColor: Colors.black.withOpacity(0.1),
-                child: Icon(
+                child: const Icon(
                   Icons.person,
                   color: Colors.deepOrange,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+             const Text(
                 'Tunmise',
               ),
             ],
           ),
-          SizedBox(
+        const  SizedBox(
             height: 10,
           ),
           TextfieldContainer(),
@@ -95,7 +95,7 @@ class _TransferScreenState extends State<TransferScreen> {
           Container(
             height: h * 0.41,
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration:const BoxDecoration(
               color: kCustomlightBlue,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(50),
@@ -129,21 +129,21 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Column(
         children: [
           CircleAvatar(
             radius: 30,
-            backgroundColor: Colors.white.withOpacity(0.1),
-            child: Icon(
+            backgroundColor: kCustomlightBlue.withOpacity(0.3),
+            child: const Icon(
               Icons.person,
               color: Colors.deepOrange,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Text(
+          const Text(
             'Tunmise',
             // style: TextStyle(
             //   fontFamily: GoogleFonts.abel(),

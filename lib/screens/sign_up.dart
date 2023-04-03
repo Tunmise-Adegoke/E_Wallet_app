@@ -1,16 +1,13 @@
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_wallet_app/main.dart';
-import 'package:e_wallet_app/screens/home.dart';
-import 'package:e_wallet_app/screens/sign_in.dart';
-import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignUpScreen extends StatefulWidget {
   final VoidCallback showLoginPage;
-  SignUpScreen({
+  const SignUpScreen({
     required this.showLoginPage,
     Key? key,
   }) : super(key: key);
@@ -37,7 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     showDialog(
         context: context,
         builder: (context) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         });
@@ -55,7 +52,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         );
       }
     } on FirebaseAuthException catch (e) {
-      print(e);
+      (e);
     }
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
@@ -75,6 +72,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
       return false;
     }
   }
+
+  bool _passwordVisibilityA = false;
+  bool _passwordVisibilityB = false;
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +102,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 Container(
                   height: h * 0.08,
-                  padding: EdgeInsets.only(left: 12),
+                  padding: const EdgeInsets.only(left: 12),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(40),
@@ -111,7 +111,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     controller: nameController,
                     showCursor: true,
                     style: const TextStyle(fontSize: 20),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Name',
                     ),
@@ -122,7 +122,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 Container(
                   height: h * 0.08,
-                  padding: EdgeInsets.only(left: 12),
+                  padding: const EdgeInsets.only(left: 12),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(40),
@@ -131,7 +131,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     controller: emailController,
                     showCursor: true,
                     style: const TextStyle(fontSize: 20),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Enter email',
                     ),
@@ -146,7 +146,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: h * 0.04,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 12),
+                  padding: const EdgeInsets.only(left: 12),
                   height: h * 0.08,
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.1),
@@ -154,11 +154,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   child: TextFormField(
                     controller: passwordController,
+                    obscureText: !_passwordVisibilityA,
                     showCursor: true,
                     style: const TextStyle(fontSize: 20),
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Enter password',
+                      hintText:
+                          _passwordVisibilityA ? 'Enter password' : '*******',
+                      suffixIcon: IconButton(
+                        icon: Icon(_passwordVisibilityA
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                        onPressed: () {
+                          setState(() {
+                            _passwordVisibilityA = !_passwordVisibilityA;
+                          });
+                        },
+                      ),
                     ),
 
                     //   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -172,19 +184,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: h * 0.04,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 12),
+                  padding: const EdgeInsets.only(left: 12),
                   height: h * 0.08,
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(40),
                   ),
                   child: TextFormField(
+                    obscureText: !_passwordVisibilityB,
                     controller: confirmPasswordController,
                     showCursor: true,
                     style: const TextStyle(fontSize: 20),
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Confirm password',
+                      hintText:
+                          _passwordVisibilityB ? 'Enter password' : '*******',
+                      suffixIcon: IconButton(
+                        icon: Icon(_passwordVisibilityB
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                        onPressed: () {
+                          setState(() {
+                            _passwordVisibilityB = !_passwordVisibilityB;
+                          });
+                        },
+                      ),
                     ),
                     // autovalidateMode: AutovalidateMode.onUserInteraction,
                     // validator: (comfirmPassword) =>
@@ -205,9 +229,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       // Navigator.push(context,
                       //     MaterialPageRoute(builder: (context) => HomePage()));
                     },
-                    child: Text('Create Account'),
+                    child: const Text('Create Account'),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.black,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -235,9 +258,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       //           widget.showLoginPage, showRegisterPage: () {  },
                       //         )));
                     },
-                    child: Text('Already have an account'),
+                    child: const Text('Already have an account'),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.black,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),

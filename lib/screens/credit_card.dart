@@ -1,13 +1,13 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/glassmorphism_config.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CreditCard extends StatelessWidget {
-  CreditCard({Key? key}) : super(key: key);
+  const CreditCard({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
+    // double h = MediaQuery.of(context).size.height;
     return Center(
       child: Container(
         height: 200,
@@ -21,7 +21,7 @@ class CreditCard extends StatelessWidget {
             Container(
               height: 100,
               width: 350,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(30),
@@ -35,7 +35,7 @@ class CreditCard extends StatelessWidget {
             Positioned(
               top: 100,
               child: Container(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   horizontal: 10,
                   vertical: 10,
                 ),
@@ -50,7 +50,7 @@ class CreditCard extends StatelessWidget {
                         Colors.blue.withOpacity(0.3)
                       ],
                     ),
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(30),
                       bottomLeft: Radius.circular(30),
                     ),
@@ -59,14 +59,37 @@ class CreditCard extends StatelessWidget {
                   children: [
                     Text(
                       'My Balance',
-                      style: TextStyle(fontSize: w * 0.06),
+                      style: GoogleFonts.nunito(
+                        textStyle:
+                            TextStyle(fontSize: w * 0.06, color: Colors.black),
+                      ),
                     ),
-                    SizedBox(height: 10),
-                    Text('#345678.000', style: TextStyle(fontSize: w * 0.05)),
+                   const SizedBox(height: 10),
+                    Text(
+                      '#345678.000',
+                      style: GoogleFonts.nunito(
+                        textStyle: TextStyle(fontSize: w * 0.05),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
+            // Positioned(
+            //   top: 400,
+            //   child: BackdropFilter(
+            //     filter: ImageFilter.blur(
+            //       sigmaX: 5,
+            //       sigmaY: 5,
+            //     ),
+            //     child: ClipRRect(
+            //       borderRadius: BorderRadius.circular(30),
+            //       child: Container(
+            //         height: 100,
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

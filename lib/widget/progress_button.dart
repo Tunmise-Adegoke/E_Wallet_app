@@ -1,10 +1,11 @@
 import 'dart:math';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_state_button/iconed_button.dart';
 import 'package:progress_state_button/progress_button.dart';
 
 class SendButton extends StatefulWidget {
+  const SendButton({Key? key}) : super(key: key);
+
   @override
   _SendButtonState createState() => _SendButtonState();
 }
@@ -17,7 +18,7 @@ class _SendButtonState extends State<SendButton> {
   Widget build(BuildContext context) {
     return Center(
       child: ProgressButton.icon(iconedButtons: {
-        ButtonState.idle: IconedButton(
+        ButtonState.idle: const IconedButton(
             text: 'Send',
             icon: Icon(Icons.send, color: Colors.white),
             color: Colors.deepOrange),
@@ -25,11 +26,11 @@ class _SendButtonState extends State<SendButton> {
             IconedButton(text: 'Loading', color: Colors.deepPurple.shade700),
         ButtonState.fail: IconedButton(
             text: 'Failed',
-            icon: Icon(Icons.cancel, color: Colors.white),
+            icon: const Icon(Icons.cancel, color: Colors.white),
             color: Colors.red.shade300),
         ButtonState.success: IconedButton(
             text: 'Success',
-            icon: Icon(
+            icon: const Icon(
               Icons.check_circle,
               color: Colors.white,
             ),
@@ -43,7 +44,7 @@ class _SendButtonState extends State<SendButton> {
       case ButtonState.idle:
         stateTextWithIcon = ButtonState.loading;
         Future.delayed(
-          Duration(seconds: 1),
+          const Duration(seconds: 1),
           () {
             setState(
               () {

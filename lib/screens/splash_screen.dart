@@ -1,12 +1,11 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:animations/animations.dart';
 import 'package:e_wallet_app/auth/main_page.dart';
 import 'package:e_wallet_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
 class SplashScreen extends StatefulWidget {
-  SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -16,37 +15,37 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(milliseconds: 400), () {
+    Timer(const Duration(milliseconds: 400), () {
       setState(() {
         _a = true;
       });
     });
-    Timer(Duration(milliseconds: 400), () {
+    Timer(const Duration(milliseconds: 400), () {
       setState(() {
         _b = true;
       });
     });
-    Timer(Duration(milliseconds: 1300), () {
+    Timer(const Duration(milliseconds: 1300), () {
       setState(() {
         _c = true;
       });
     });
-    Timer(Duration(milliseconds: 1700), () {
+    Timer(const Duration(milliseconds: 1700), () {
       setState(() {
         _e = true;
       });
     });
-    Timer(Duration(milliseconds: 3400), () {
+    Timer(const Duration(milliseconds: 3400), () {
       setState(() {
         _d = true;
       });
     });
-    Timer(Duration(milliseconds: 3850), () {
+    Timer(const Duration(milliseconds: 3850), () {
       setState(() {
-        Navigator.of(this.context).pushReplacement(
+        Navigator.of(context).pushReplacement(
           ThisIsFadeRoute(
-            page: MainPage(),
-            route: MainPage(),
+            page: const MainPage(),
+            route: const MainPage(),
           ),
         );
       });
@@ -106,7 +105,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   color: _b ? Colors.white : Colors.transparent,
                   // shape: _c? BoxShape.rectangle : BoxShape.circle,
                   borderRadius:
-                      _d ? BorderRadius.only() : BorderRadius.circular(30)),
+                      _d ? const BorderRadius.only() : BorderRadius.circular(30)),
               child: Center(
                 child: _e
                     ? AnimatedTextKit(
@@ -114,8 +113,8 @@ class _SplashScreenState extends State<SplashScreen> {
                         animatedTexts: [
                           FadeAnimatedText(
                             'TreeBug',
-                            duration: Duration(milliseconds: 1700),
-                            textStyle: TextStyle(
+                            duration: const Duration(milliseconds: 1700),
+                            textStyle: const TextStyle(
                               fontFamily: 'Nunito',
                               fontSize: 30,
                               fontWeight: FontWeight.w700,
@@ -123,7 +122,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           ),
                         ],
                       )
-                    : SizedBox(),
+                    : const SizedBox(),
               ),
             ),
           ],

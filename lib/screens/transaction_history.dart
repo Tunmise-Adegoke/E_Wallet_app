@@ -1,5 +1,4 @@
-import '../utils/constants.dart' show kCustomlightBlue, kYellowColor;
-import 'package:flutter/cupertino.dart';
+import '../utils/constants.dart' show kCustomlightBlue;
 import 'package:flutter/material.dart';
 import 'package:sticky_grouped_list/sticky_grouped_list.dart';
 
@@ -21,7 +20,7 @@ List<Element> _elements = [
       image: CircleAvatar(
         radius: 35,
         backgroundColor: Colors.white.withOpacity(0.3),
-        child: Icon(
+        child: const Icon(
           Icons.person,
           color: Colors.white,
         ),
@@ -33,7 +32,7 @@ List<Element> _elements = [
       image: CircleAvatar(
         radius: 35,
         backgroundColor: Colors.white.withOpacity(0.3),
-        child: Icon(
+        child: const Icon(
           Icons.person,
           color: Colors.white,
         ),
@@ -45,7 +44,7 @@ List<Element> _elements = [
       image: CircleAvatar(
         radius: 35,
         backgroundColor: Colors.white.withOpacity(0.3),
-        child: Icon(
+        child: const Icon(
           Icons.person,
           color: Colors.white,
         ),
@@ -70,14 +69,14 @@ class TransationList extends StatelessWidget {
           element1.date.compareTo(element2.date),
       floatingHeader: true,
       shrinkWrap: true,
-      physics: ScrollPhysics(),
-      groupSeparatorBuilder: (Element element) => Container(
+      physics: const ScrollPhysics(),
+      groupSeparatorBuilder: (Element element) => SizedBox(
         height: 50,
         child: Align(
           alignment: Alignment.center,
           child: Container(
             width: 120,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.deepOrange,
               // border: Border.all(
               //   color: kYellowColor,
@@ -87,7 +86,7 @@ class TransationList extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Text(
                 '${element.date.day}/${element.date.month}/${element.date.year}',
                 textAlign: TextAlign.center,
@@ -102,14 +101,12 @@ class TransationList extends StatelessWidget {
           borderRadius: BorderRadius.circular(25.0),
         ),
         elevation: 2.0,
-        margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-        child: Container(
-          child: ListTile(
-            contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            leading: element.image,
-            title: Text(element.name),
-            trailing: Text(element.price),
-          ),
+        margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+        child: ListTile(
+          contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          leading: element.image,
+          title: Text(element.name),
+          trailing: Text(element.price),
         ),
       ),
     );

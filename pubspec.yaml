@@ -42,12 +42,15 @@ dependencies:
   badges: ^2.0.3
   glassmorphism: ^3.0.0
   progress_state_button: ^1.0.4
-  cloud_firestore: ^3.2.1
-  firebase_auth: ^3.4.1
   auth_buttons: ^1.0.1+4
   animations: ^2.0.2
   email_validator: ^2.0.1
   animated_text_kit: ^4.2.1
+  dio: ^5.0.1
+  firebase_auth: ^4.1.1
+  cloud_firestore: ^4.0.4
+  firebase_core: ^2.1.1
+  go_router: ^6.3.0
 
 dev_dependencies:
   flutter_test:

@@ -6,22 +6,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GetStarted extends StatefulWidget {
-  GetStarted({Key? key}) : super(key: key);
+  const GetStarted({Key? key}) : super(key: key);
 
   @override
   State<GetStarted> createState() => _GetStartedState();
 }
 
 class _GetStartedState extends State<GetStarted> {
-  @override
+
   bool isLogin = true;
 
   void toggle() => setState(() {
         isLogin = !isLogin;
       });
 
-  @override
-  Widget AuthPage(BuildContext context) {
+  Widget authPage(BuildContext context) {
     if (isLogin) {
       return SignUpScreen(showLoginPage: toggle);
     } else {
@@ -29,19 +28,20 @@ class _GetStartedState extends State<GetStarted> {
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Stack(
           children: [
             Container(
               height: h * 0.60,
-              width: 500,
-              decoration: BoxDecoration(
+              width: double.maxFinite,
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/image7.jpeg'),
                   fit: BoxFit.cover,
@@ -51,10 +51,10 @@ class _GetStartedState extends State<GetStarted> {
             Positioned(
               top: 400,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 height: h * 0.50,
-                width: 400,
-                decoration: BoxDecoration(
+                width: 420,
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(50),
@@ -113,9 +113,9 @@ class _GetStartedState extends State<GetStarted> {
                                         showLoginPage: toggle,
                                       )));
                         },
-                        child: Text('Get Started'),
+                        child: const Text('Get Started'),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.black,
+                         
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
@@ -142,9 +142,9 @@ class _GetStartedState extends State<GetStarted> {
                                         showRegisterPage: toggle,
                                       )));
                         },
-                        child: Text('I already have an account'),
+                        child: const Text('I already have an account'),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.black,
+                         
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),

@@ -21,7 +21,7 @@ class TextfieldContainer extends StatelessWidget {
           showCursor: false,
           style: const TextStyle(fontSize: 40),
           keyboardType: TextInputType.none,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             border: InputBorder.none,
           ),
         ),

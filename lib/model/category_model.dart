@@ -14,7 +14,7 @@ class Category {
 }
 
 List<Category> category = [
-  Category(
+  const Category(
     categoryImage: 'assets/images/icons8-send-49.png',
     categoryName: 'Send',
     color: Colors.deepOrange,

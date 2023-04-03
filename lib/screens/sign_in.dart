@@ -1,8 +1,6 @@
 import 'package:auth_buttons/auth_buttons.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_wallet_app/main.dart';
-import 'package:e_wallet_app/screens/home.dart';
-import 'package:e_wallet_app/screens/sign_up.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,11 +23,11 @@ void dispose() {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  Future SignIn() async {
+  Future signIn() async {
     showDialog(
         context: context,
         builder: (context) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         });
@@ -40,7 +38,7 @@ class _SignInScreenState extends State<SignInScreen> {
         password: passwordController.text.trim(),
       );
     } on FirebaseAuthException catch (e) {
-      print(e);
+      (e);
     }
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
@@ -49,6 +47,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
+    bool _passwordVisiblityA = false;
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -81,7 +80,7 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
               Container(
                 height: h * 0.08,
-                padding: EdgeInsets.only(left: 12),
+                padding: const EdgeInsets.only(left: 12),
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(40),
@@ -90,7 +89,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   controller: emailController,
                   showCursor: true,
                   style: const TextStyle(fontSize: 20),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Enter email',
                   ),
@@ -100,7 +99,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 height: h * 0.04,
               ),
               Container(
-                padding: EdgeInsets.only(left: 12),
+                padding: const EdgeInsets.only(left: 12),
                 height: h * 0.08,
                 decoration: BoxDecoration(
                   color: Colors.black.withOpacity(0.1),
@@ -108,11 +107,24 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 child: TextField(
                   controller: passwordController,
+                  obscureText: !_passwordVisiblityA,
                   showCursor: true,
                   style: const TextStyle(fontSize: 20),
                   decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: 'Enter password',
+                    hintText:
+                        // ignore: dead_code
+                        _passwordVisiblityA ? 'Enter a password' : '*********',
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _passwordVisiblityA = !_passwordVisiblityA;
+                        });
+                      },
+                      icon: Icon(_passwordVisiblityA
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                    ),
                   ),
                 ),
               ),
@@ -124,13 +136,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 width: w * 0.70,
                 child: ElevatedButton(
                   onPressed: () {
-                    SignIn();
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => HomePage()));
+                    signIn();
                   },
-                  child: Text('Enter'),
+                  child: const Text('Enter'),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -156,9 +165,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     //     MaterialPageRoute(
                     //         builder: (context) => SignUpScreen()));
                   },
-                  child: Text('Don\'t have an account? Sign up'),
+                  child: const Text('Don\'t have an account? Sign up'),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
